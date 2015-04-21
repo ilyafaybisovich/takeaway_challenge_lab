@@ -1,7 +1,6 @@
 class Menu
 
   attr_accessor :menu
-  alias_method :show, :menu
 
   def initialize
     @menu = {}
@@ -10,6 +9,16 @@ class Menu
   def add(dish, price)
     menu[dish] = price
     menu
+  end
+
+  def show
+    i = 1
+    user_menu = ""
+    menu.each do |dish, price|
+      user_menu += "#{i}. #{dish.capitalize} ... #{price}\n"
+      i += 1
+    end
+    user_menu
   end
 
 end
